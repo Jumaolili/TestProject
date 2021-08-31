@@ -1,0 +1,11 @@
+#register {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.ant-row {
+    text-align: center;
+}
