@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useHistory } from "react-router-dom";
 import 'antd/dist/antd.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.css'
 
+//引入services的API
+import * as api from '../../services/api'
+
 const NormalLoginForm = () => {
   const onFinish = (values:any) => {
     console.log('Received values of form: ', values);
   };
-
+  let history = useHistory();
+  
+  async function login() {
+    history.push("/firstpage");
+  }
+  
   return (
     <Form
       name="normal_login"
@@ -56,7 +65,7 @@ const NormalLoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" onClick={login} className="login-form-button">
           Log in
         </Button>
         Or <a href="/register">register now!</a>

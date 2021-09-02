@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.module.less';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect, Router } from 'react-router-dom'
 
 
 //引入页面组件
 import Login from './pages/Login'
 import Register from './pages/Register'
+import FirstPage from './pages/FirstPage'
 
 function App() {
   return (
@@ -16,9 +18,10 @@ function App() {
           <Switch>
             <Route path='/login' exact component={Login} />
             <Route path='/register' exact component={Register} />
+            <Route path='/firstpage' exact component={FirstPage} />
             {/* <Route path='/addCapsule' component={} /> */}
             {/* 这是一个默认页面，如果前面的路由都没有被匹配到，就会渲染这个组件，相当于404，一定要放到最后 */}
-            
+            <Redirect from="/" to="/login" exact></Redirect>
           </Switch>
         </div>
     </BrowserRouter>
